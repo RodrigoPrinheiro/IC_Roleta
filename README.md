@@ -10,7 +10,4 @@ https://blog.udacity.com/2015/06/a-beginners-git-github-tutorial.html
 https://git-scm.com/docs/git-pull
 
 # *IC: Projeto Roleta*
-## Trabalho Realizado por: Rodrigo Pinheiro_a21802488 e Tomás Franco_(your numero de aluno).
-
-from branch Pinhas-updates
-
+## Trabalho Realizado por: Rodrigo Pinheiro_a21802488 e Tomï¿½s Franco_(your numero de aluno).
