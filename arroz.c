@@ -6,13 +6,13 @@ int rollr();
 void comand_list();
 void help();
 //colocar painel
-
+unsigned int Creditos = 100;
 //main
 //escolher dif
 int main(){
   //variaveis
   int cashBet, numberBet, n;
-  char color, R, B;
+  char choice, R, B;
   //delcarar arrays para vermelho e preto(18 de tamanho, nrs especificos go see rules)
   //welcome titles
   comand_list();

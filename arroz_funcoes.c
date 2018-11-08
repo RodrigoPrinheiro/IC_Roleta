@@ -54,9 +54,29 @@ void help (void){
 }
 
 void show_Balance(void){
-  printf("\t Balance:        %d", &Creditos);
-  printf("\t Current Bet:    %d", &bet);
+  printf("\t Balance:        %d"\n, &Creditos);
+  printf("\t Current Bet:    %d"\n, &bet);
   return 0
+}
+
+int odd_even(){
+  if (choice == "e") {
+    if(n%2 == 0){
+      Creditos += cashBet*2;
+      printf("You Win.  You have %d credits\n", Creditos);//dizer mais alguma coisa
+    }else{
+      Creditos-= cashBet;
+      printf("You Loose. You have %d credits\n", Creditos);//dizer mais alguma coisa
+    }
+  }else if(choice =="o"){
+    if(n%2 == 1){
+      Creditos += cashBet*2;
+        printf("You Win.  You have %d credits\n", Creditos);//dizer mais alguma coisa
+    }else{
+      Creditos -= cashBet;
+      printf("You Loose. You have %d credits\n", Creditos);//dizer mais alguma coisa
+    }
+  }
 }
 
 /* DONNOT MAKE OPTION_SELECT FUNC, USELESS. DO INSTEAD WHAT IT GOINS IN EACH.
