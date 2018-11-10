@@ -90,11 +90,10 @@ int main(void){
   fscanf(credits_file,"%d",&Creditos);
   fflush(credits_file);
   Creditos = Creditos +amount;
-  fprintf(credits_file,"%d",Creditos);
+  fprintf(credits_file,"%d\n",Creditos);
   printf("%d", Creditos);
   fflush(credits_file);
   fclose(credits_file);
-  scanf("%d\n", &amount);
   return 0;
 }
 
