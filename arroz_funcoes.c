@@ -8,7 +8,7 @@ int bet;
 void delay(int seconds){ //time delay
   int milli_seconds = 1000*seconds;
   clock_t start = clock();
-  while(clock() < start + milli_seconds);
+  while(clock() < start + milli_seconds); //"ocupar" o pc com outra coisa enquanto corre.
 }
 
 int rollr(){ //roleta tirar novo nr
@@ -23,11 +23,11 @@ int rollr(){ //roleta tirar novo nr
   printf("%d !!\n", n);
   return n;
 }
+
 int comand_list(){ //welcome message
     printf("Welcome to the BCIW, The Biggest Casino In the World!! \n");
     printf("We've been having some technical problems lately and only the roulette is available...\n");
-    printf("\t Balance:        %d", &Creditos);
-    printf("\t Current Bet:    %d", &bet);
+    printf("\t Balance:        %d\n", Creditos);
     printf("b <amount> -- the amount you want to bet \n");
     printf("n <number> -- the number you want to bet \n");
     printf("e -- automatically bets on an even number. Pays 2 to 1 \n");
@@ -56,11 +56,11 @@ int help (void){ //instrocoes
 }
 
 void show_Balance(void){
-  printf("\t Balance:        %d\n", &Creditos);
-  printf("\t Current Bet:    %d\n", &bet);
+  printf("\t Balance:        %d\n", Creditos);
+  printf("\t Current Bet:    %d\n", bet);
 }
 
-/*int odd_even(int n){
+int odd_even(int n){
   if (choice == "e") {
     if(n%2 == 0){
       Creditos += cashBet*2;
@@ -79,62 +79,7 @@ void show_Balance(void){
     }
   }
   return 0;
-}*/
-
-int main(void){
-  int amount;
-  FILE *credits_file;
-  credits_file =fopen("Creditos.txt", "r+");
-  printf("Amount?");
-  scanf("%d", &amount);
-  fscanf(credits_file,"%d",&Creditos);
-  fflush(credits_file);
-  Creditos = Creditos +amount;
-  fprintf(credits_file,"%d\n",Creditos);
-  printf("%d", Creditos);
-  fflush(credits_file);
-  fclose(credits_file);
-  return 0;
 }
-
-
-
-
-
-
-/* DONNOT MAKE OPTION_SELECT FUNC, USELESS. DO INSTEAD WHAT IT GOINS IN EACH.
-int option_select (){
-    char choice;
-    printf("Please select an option! We haven't got all day!!\n")
-    scanf(">%c ", &choice);
-    scanf("%d\n", &bet);
-    switch (choice) {
-      case "h":
-        help();
-        break;
-      case "b":
-        if (bet > Creditos)
-          printf("Woah there, we wouldn't want you to go in debt would we?\n", );
-        else if(bet <=0)
-          printf("We're not here to trade candy, only money allowed"\n", );
-        else{
-          printf("You just bet %d for this round\n", bet);
-          Creditos -= bet;
-          printf("Current Credits:  %d", &Creditos);
-        }
-        break;
-      case "n":
-        if (betNumber < ) {
-        }
-    }
-    return bet;
-}
-*/
-
-
-
-
-
 
 int color_check(int a, int b){
   int red[18]={1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36};
@@ -171,4 +116,11 @@ int color_check(int a, int b){
       printf("you lose.");
     }
   }
+  return 0;
+}
+
+int main(void){
+  int amount;
+  delay(3);
+  return 0;
 }
