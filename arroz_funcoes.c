@@ -4,23 +4,14 @@
 
 int Creditos;
 int bet;
-FILE *in_file;
-FILE *out_file;
 
-int moreCredits(int){
-  Creditos += x;
-  fprintf(out_file, "%d", Creditos);
-  Creditos =fscanf(in_file, "%d", &Creditos);
-  return Creditos;
-}
-
-void delay(int seconds){
+void delay(int seconds){ //time delay
   int milli_seconds = 1000*seconds;
   clock_t start = clock();
   while(clock() < start + milli_seconds);
 }
 
-int rollr(){
+int rollr(){ //roleta tirar novo nr
   int n, i;
   srand(time(NULL));
   n=(rand()%37);
@@ -32,7 +23,7 @@ int rollr(){
   printf("%d !!\n", n);
   return n;
 }
-void comand_list(){
+int comand_list(){ //welcome message
     printf("Welcome to the BCIW, The Biggest Casino In the World!! \n");
     printf("We've been having some technical problems lately and only the roulette is available...\n");
     printf("\t Balance:        %d", &Creditos);
@@ -49,7 +40,7 @@ void comand_list(){
     return 0;
 }
 
-void help (void){
+int help (void){ //instrocoes
     printf("Well... Here is the manual: \n");
     printf("b <amount> -- the amount you want to bet \n");
     printf("n <number> -- the number you want to bet \n");
@@ -65,12 +56,11 @@ void help (void){
 }
 
 void show_Balance(void){
-  printf("\t Balance:        %d"\n, &Creditos);
-  printf("\t Current Bet:    %d"\n, &bet);
-  return 0
+  printf("\t Balance:        %d\n", &Creditos);
+  printf("\t Current Bet:    %d\n", &bet);
 }
 
-int odd_even(){
+/*int odd_even(int n){
   if (choice == "e") {
     if(n%2 == 0){
       Creditos += cashBet*2;
@@ -88,14 +78,31 @@ int odd_even(){
       printf("You Loose. You have %d credits\n", Creditos);//dizer mais alguma coisa
     }
   }
-}
+  return 0;
+}*/
 
-void main(void){
-  out_file =fopen("Creditos", "w");
-  in_file =fopen("Creditos", "r");
-  moreCredits(100);
+int main(void){
+  int amount;
+  FILE *credits_file;
+  credits_file =fopen("Creditos.txt", "r+");
+  printf("Amount?");
+  scanf("%d", &amount);
+  fscanf(credits_file,"%d",&Creditos);
+  fflush(credits_file);
+  Creditos = Creditos +amount;
+  fprintf(credits_file,"%d",Creditos);
+  printf("%d", Creditos);
+  fflush(credits_file);
+  fclose(credits_file);
+  scanf("%d\n", &amount);
   return 0;
 }
+
+
+
+
+
+
 /* DONNOT MAKE OPTION_SELECT FUNC, USELESS. DO INSTEAD WHAT IT GOINS IN EACH.
 int option_select (){
     char choice;
