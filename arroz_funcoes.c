@@ -1,23 +1,34 @@
 #include <stdio.h>
 #include <time.h>
-#include <random>
 #include <stdlib.h>
 
-int Creditos = 100;
-unsigned int bet = 0;
+int Creditos;
+int bet;
+FILE *in_file;
+FILE *out_file;
 
-int rollr(void){
-  int n;
+int moreCredits(int){
+  Creditos += x;
+  fprintf(out_file, "%d", Creditos);
+  Creditos =fscanf(in_file, "%d", &Creditos);
+  return Creditos;
+}
+
+void delay(int seconds){
+  int milli_seconds = 1000*seconds;
+  clock_t start = clock();
+  while(clock() < start + milli_seconds);
+}
+
+int rollr(){
+  int n, i;
   srand(time(NULL));
   n=(rand()%37);
-  printf("the number is...")
-  delay(1000);
-  printf(".");
-  delay(1000);
-  printf(".");
-  delay(1000);
-  printf(".");
-  delay(1000);
+  printf("the number is...");
+  for (i = 0; i<4; i++){
+    delay(1);
+    printf(".");
+  }
   printf("%d !!\n", n);
   return n;
 }
@@ -79,6 +90,12 @@ int odd_even(){
   }
 }
 
+void main(void){
+  out_file =fopen("Creditos", "w");
+  in_file =fopen("Creditos", "r");
+  moreCredits(100);
+  return 0;
+}
 /* DONNOT MAKE OPTION_SELECT FUNC, USELESS. DO INSTEAD WHAT IT GOINS IN EACH.
 int option_select (){
     char choice;

@@ -1,12 +1,14 @@
 #include <stdio.h>
-#include <random.h>
 #include <time.h>
+
+FILE *in_file = fopen("Creditos.txt", "r");
+FILE *out_file = fopen("Creditos.txt", "w");
 //inicializar
 int rollr();
 void comand_list();
 void help();
 //colocar painel
-unsigned int Creditos = 100;
+unsigned int Creditos;
 //main
 //escolher dif
 int main(){
@@ -20,7 +22,7 @@ int main(){
   while (Creditos > 0){
     //whole thing here inside
   }
-printf("Well... you are finally out of credits. Leave or we'll kick you out");
-getchar();
-return 0
+  printf("Well... you are finally out of credits. Leave or we'll kick you out");
+  getchar();
+  return 0;
 }
