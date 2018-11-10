@@ -15,6 +15,9 @@ int rollr(){ //roleta tirar novo nr
   int n, i;
   srand(time(NULL));
   n=(rand()%37);
+  while (n == 0){
+    n=(rand()%37);
+  }
   printf("the number is...");
   for (i = 0; i<4; i++){
     delay(1);
@@ -24,9 +27,7 @@ int rollr(){ //roleta tirar novo nr
   return n;
 }
 
-int comand_list(){ //welcome message
-    printf("Welcome to the BCIW, The Biggest Casino In the World!! \n");
-    printf("We've been having some technical problems lately and only the roulette is available...\n");
+int comand_list(int Creditos){ //welcome message
     printf("\t Balance:        %d\n", Creditos);
     printf("b <amount> -- the amount you want to bet \n");
     printf("n <number> -- the number you want to bet \n");
@@ -55,22 +56,23 @@ int help (void){ //instrocoes
     return 0;
 }
 
-void show_Balance(void){
+int show_Balance(int Creditos, int bet){
   printf("\t Balance:        %d\n", Creditos);
   printf("\t Current Bet:    %d\n", bet);
+  return 0;
 }
 
-int odd_even(int n){
-  if (choice == "e") {
-    if(n%2 == 0){
+int odd_even(int number, int choice, int cashBet){
+  if (choice == 'e') {
+    if(number%2 == 0){
       Creditos += cashBet*2;
       printf("You Win.  You have %d credits\n", Creditos);//dizer mais alguma coisa
     }else{
       Creditos-= cashBet;
       printf("You Loose. You have %d credits\n", Creditos);//dizer mais alguma coisa
     }
-  }else if(choice =="o"){
-    if(n%2 == 1){
+  }else if(choice =='o'){
+    if(number%2 == 1){
       Creditos += cashBet*2;
         printf("You Win.  You have %d credits\n", Creditos);//dizer mais alguma coisa
     }else{
@@ -119,8 +121,8 @@ int color_check(int a, int b){
   return 0;
 }
 
-int main(void){
-  int amount;
-  delay(3);
+int Start(){
+  printf("Welcome to the BCIW, The Biggest Casino In the World! \n");
+  printf("We've been having some technical problems lately and only the roulette is available...\n");
   return 0;
 }
