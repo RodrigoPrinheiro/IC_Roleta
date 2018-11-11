@@ -119,6 +119,7 @@ int color_check(int roll,int choice, int Creditos, int bet){//red and black chec
 }
 
 int Start(){// first messages___________________________________________________
+  printf("\n");
   printf("Welcome to the rice fields Casino, where money isn't allowed! \nYou may be wondering why money isnt allowed. It's very simple, we do this for fun, not to ruin our lifes and live in misery.\nAnd that is the main reason for the why we use rice as currency.");
   printf(" Although, we've been having some technical issues lately and only the roulette is available...Rice got into the circuits of the other games...\n");
   return 0;
@@ -129,29 +130,29 @@ int number_compare(int n, int numberBet, int Creditos){//betting on a specific n
     Creditos += Creditos*2;
     printf("The rice gods gave you the blessing of the monocots. You are rewarded with %d rice fields top notch rice. You now have %d jolly rice.\n", Creditos*2, Creditos);
   }else{
-    Creditos -= numberBet*2;
-    printf("yea, dont get ahead of yourself. You lost %d rice. Currently with %d\n", numberBet*2, Creditos);
+    Creditos -= numberBet;
+    printf("yea, dont get ahead of yourself. You lost %d rice. Currently with %d\n", numberBet, Creditos);
   }
 
   return 0;
 }
 
 //case g:
-void save_game(){// saving the game_____________________________________________
+void save_game(int Creditos, int cashBet, int minBet){// saving the game_____________________________________________
   file =fopen("GameSave.sv", "w+");
-  fprintf(file, "%d\n", &Creditos);
-  fprintf(file, "%d\n", &cashBet);
-  fprintf(file, "%d\n", &minBet); //adicionar para a dificuldade opcional que o stor pede (ver github)
+  fprintf(file, "%d\n", Creditos);
+  fprintf(file, "%d\n", cashBet);
+  fprintf(file, "%d\n", minBet); //adicionar para a dificuldade opcional(ver github)
   fclose(file);
   printf("Game successfully saved.\n\n");
 }
 
 //case t:
-void load_game(){// loading previously saved game_______________________________
-  if ((file = fopen("GameSave.sv", "r+"")) !=NULL){
+void load_game(int Creditos, int cashBet, int minBet){// loading previously saved game_______________________________
+  if ((file = fopen("GameSave.sv", "r+")) !=NULL){
     fscanf(file, "%d\n", &Creditos);
     fscanf(file, "%d\n", &cashBet);
-    fscanf(file, "%d\n", &minBet); //adicionar para a dificuldade opcional que o stor pede (ver github)
+    fscanf(file, "%d\n", &minBet); //adicionar para a dificuldade opcional(ver github)
     fclose(file);
     printf("\nYou have successfully loaded your game.\n");
     printf("\n\n");

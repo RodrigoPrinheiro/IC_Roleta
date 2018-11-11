@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 //inicializar funçoes--------------------------------------------------------------
 int Start();
 int rollr();
@@ -9,15 +10,15 @@ int show_Balance(int Creditos,int bet);
 int odd_even(int number, int choice, int cashBet, int Creditos);
 int color_check(int roll,int choice, int Creditos, int bet);
 int number_compare(int n, int numberBet);
-void load_game();
-void save_game();
+void load_game(int Creditos, int cashBet, int minBet);
+void save_game(int Creditos, int cashBet, int minBet);
 FILE *file;
 
 int main(){
   //variaveis----------------------------------------------------------------------
   int Creditos = 100;
-  int cashBet, numberBet, n;
-  char choice[5], color[1];
+  int cashBet, numberBet, n, minBet;
+  char choice[5];
 
   /*
   choice[0] = travel in menu
@@ -28,6 +29,7 @@ int main(){
   */
 
   //welcome titles
+  minBet=0;
   choice[2] = 0;
   choice[3] = 0;
   Start();
@@ -35,23 +37,18 @@ int main(){
   printf("\nWhat do you want to do?\n");
   //incio--------------------------------------------------------------------------
   while (Creditos > 0){
-
-    switchStart:
     scanf("%c",choice);
     switch(choice[0]){
       case 'b': //player chooses how much to bet___________________________________
-        printf("\nRice to Bet: ");
         scanf("%d", &cashBet);
-        if ((cashBet < Creditos) && (cashBet >= 0)){
+        while ((cashBet > Creditos) | (cashBet <= 0)){
+          printf("\nGoddamn it outsider, behave. Bet something realistic...\nRice to Bet: ");
+          scanf("%d", &cashBet);
+        }
+        if ((cashBet <= Creditos) & (cashBet > 0)){
           Creditos -= cashBet;
           show_Balance(Creditos, cashBet);
           choice[2] = 1;
-        }if ((cashBet > Creditos) || (cashBet <= 0)){
-          while ((cashBet > Creditos) || (cashBet <= 0)){
-            printf("\nGoddamn it outsider, behave. Bet something realistic...\nRice to Bet: ");
-            scanf("%d", &cashBet);
-        }
-            printf("You just bet %d for this round\n", cashBet);
         }
         break;
       case 'n': // player chooses to bet on a number________________________________
@@ -65,7 +62,7 @@ int main(){
         help();
         break;
       case 'r': // roll the numbers_________________________________________________
-        if ((choice[2] == 1) && (choice[3] == 1)){
+        if ((choice[2] == 1) & (choice[3] == 1)){
           printf("lets roll.\n");
           n =rollr();
           if (choice[1] == 'e'){
@@ -103,27 +100,29 @@ int main(){
         choice[3] = 1;
         choice[4] = 'r';
         break;
-      case 'v': // player picks the color red to bet________________________________
+      case 'v': // player picks the color black to bet________________________________
         printf("You little punk, Black it is. Whenever you are ready, roll.\n");
         choice[1] = 'c';
         choice[3] = 1;
         choice[4] = 'b';
         break;
       case 'g': // player wants to save progress____________________________________
-        save_game();
+        save_game(Creditos,cashBet, minBet);
         break;
       case 't': //player wants to load save file____________________________________
-        load_game();
+        load_game(Creditos,cashBet, minBet);
         break;
       case 'm':
         rollr();
         break;
       case 'l':
-        save_game();
+        save_game(Creditos,cashBet, minBet);
         Creditos = 0;
+        goto finish;
     }
   }
+  finish:
   printf("Looks like you are done for today. Comeback sometime!");
-  getchar();
+  exit(1);
   return 0;
 }
