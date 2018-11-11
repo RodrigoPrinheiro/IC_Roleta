@@ -41,7 +41,7 @@ int main(){
         printf("Rice to bet: ");
         scanf("%d", &cashBet);
         //player chose difficulty level 1
-        if (minBet == 1{
+        if (minBet == 1){
           while ((cashBet >= Creditos) | (cashBet <= 0)){
             printf("\nGoddamn it outsider, if you bet it all you won't have rice for dinner!(you must stick to 1 rice)\nRice to Bet: ");
             scanf("%d", &cashBet);
