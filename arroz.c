@@ -9,6 +9,7 @@ int show_Balance(int Creditos,int bet);
 int odd_even(int number, int choice, int cashBet, int Creditos);
 int color_check(int roll, int color);
 int number_compare(int n, int numberBet);
+FILE *file;
 
 int main(){
   //variaveis

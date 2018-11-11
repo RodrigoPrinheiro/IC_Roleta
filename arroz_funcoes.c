@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+FILE *file;
 
 void delay(int seconds){ //time delay___________________________________________
   int milli_seconds = 1000*seconds;
@@ -131,4 +132,29 @@ int number_compare(int n, int numberBet){//betting on a specific number_________
   }
 
   return 0;
+}
+
+//case g:
+void save_game(){
+  file =fopen("GameSave.sv", "w+");
+  fprintf(file, "%d\n", &Creditos);
+  fprintf(file, "%d\n", &cashBet);
+  fprintf(file, "%d\n", &minBet); //adicionar para a dificuldade opcional que o stor pede (ver github)
+  fclose(file);
+  printf("\n\n");
+}
+
+//case t:
+void load_game(){
+  if ((file = fopen("GameSave.sv", "r+"")) !=NULL){
+    fscanf(file, "%d\n", &Creditos);
+    fscanf(file, "%d\n", &cashBet);
+    fscanf(file, "%d\n", &minBet); //adicionar para a dificuldade opcional que o stor pede (ver github)
+    fclose(file);
+    printf("\nYou have loaded your game successfully");
+    printf("\n\n");
+    show_Balance(Creditos, cashBet);
+  }else{
+    printf("\nThere is no saved game to load.");
+  }
 }
