@@ -55,7 +55,6 @@ int help (void){ //instrucoes___________________________________________________
     printf("\ts ----------- show current balance \n");
     printf("\tl ----------- cash out/leave \n");
     printf("\tg ----------- save game progress \n");
-    printf("\tt ----------- load saved game \n");
     printf("\tRed or black: Choosing a color\n -Red numbers are  1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36\n -Black numbers are 2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35\n\n");
     return 0;
 }
@@ -72,7 +71,6 @@ int odd_even(int number, int choice, int cashBet, int Creditos){//par e impar___
       Creditos += cashBet*2;
       printf("You Won.  Now with %d rice in the bag.\n", Creditos);
     }else{
-      Creditos -= cashBet;
       printf("Shoot, you lost. You now have %d rice\n", Creditos);
     }
   }else if(choice =='o'){
@@ -80,11 +78,10 @@ int odd_even(int number, int choice, int cashBet, int Creditos){//par e impar___
       Creditos += cashBet*2;
         printf("You Won.  Now with %d rice in the bag.\n", Creditos);
     }else{
-      Creditos -= cashBet;
       printf("Shoot, you lost. You now have %d rice\n", Creditos);
     }
   }
-  return 0;
+  return Creditos;
 }
 
 int color_check(int roll,int choice, int Creditos, int bet){//red and black check______________________
@@ -111,11 +108,10 @@ int color_check(int roll,int choice, int Creditos, int bet){//red and black chec
     Creditos += bet*2;
     printf("You Won this one. Yor balance now is of %d rice. \n", Creditos);
   }else if (controller == 0){
-    Creditos -= bet;
     printf("You Lost this one. Currently with %d rice. \n", Creditos);
   }
 
-  return 0;
+  return Creditos;
 }
 
 int Start(){// first messages___________________________________________________
@@ -125,16 +121,14 @@ int Start(){// first messages___________________________________________________
   return 0;
 }
 
-int number_compare(int n, int numberBet, int Creditos){//betting on a specific number_________
+int number_compare(int n, int numberBet, int Creditos, int cashBet){//betting on a specific number_________
   if (n == numberBet){
-    Creditos += Creditos*2;
-    printf("The rice gods gave you the blessing of the monocots. You are rewarded with %d rice fields top notch rice. You now have %d jolly rice.\n", Creditos*2, Creditos);
+    Creditos += cashBet*numberBet;
+    printf("The rice gods gave you the blessing of the monocots. You are rewarded with %d rice fields top notch rice. You now have %d jolly rice.\n", cashBet*numberBet, Creditos);
   }else{
-    Creditos -= numberBet;
-    printf("yea, dont get ahead of yourself. You lost %d rice. Currently with %d\n", numberBet, Creditos);
+    printf("yea, dont get ahead of yourself. You lost %d rice. Currently with %d\n", cashBet, Creditos);
   }
-
-  return 0;
+  return Creditos;
 }
 
 //case g:
@@ -148,7 +142,7 @@ void save_game(int Creditos, int cashBet, int minBet){// saving the game________
 }
 
 //case t:
-void load_game(int Creditos, int cashBet, int minBet){// loading previously saved game_______________________________
+int load_game(int Creditos, int cashBet, int minBet){// loading previously saved game_______________________________
   if ((file = fopen("GameSave.sv", "r+")) !=NULL){
     fscanf(file, "%d\n", &Creditos);
     fscanf(file, "%d\n", &cashBet);
@@ -160,4 +154,5 @@ void load_game(int Creditos, int cashBet, int minBet){// loading previously save
   }else{
     printf("\nThere is no saved game to load.\n");
   }
+  return Creditos;
 }
