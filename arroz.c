@@ -1,18 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-//inicializar funçoes--------------------------------------------------------------
-int Start();
-int rollr();
-int delay();
-void comand_list(int Creditos);
-void help();
-int show_Balance(int Creditos,int bet);
-int odd_even(int number, int choice, int cashBet, int Creditos);
-int color_check(int roll,int choice, int Creditos, int bet);
-int number_compare(int n, int numberBet, int Creditos, int cashBet);
-int load_game(int Creditos, int cashBet, int minBet);
-void save_game(int Creditos, int cashBet, int minBet);
+#include "func_roleta.h"
 FILE *file;
 
 int main(){
@@ -34,26 +23,49 @@ int main(){
   choice[2] = 0;
   choice[3] = 0;
   Start();
-  comand_list(Creditos);
   //incio--------------------------------------------------------------------------
-  printf("Before we begin do you want to load your last balance?(y/n).");
+  printf("\nHello outsider. Before we begin do you want to load your last balance? (y/n).\n");
   scanf("%c", &load);
   if (load == 'y'){//player wants to load save file____________________________________
     Creditos = load_game(Creditos,cashBet, minBet);
+    printf("Rice successfully imported.");
   }
+  printf("\nAlright, one more thing, the difficulty. Would you like to play on:\n1 -------------------- The Cotton-Tail Room for free betting\n2 -------------------- The Rice-Ball Hall for a minimum of 10 rice when betting\n3 -------------------- The Rice Hall-of-Fame for a minimum of 20 rice when betting?\n");
+  scanf("%d", &minBet);
+  comand_list(Creditos);
+  printf("Make your choice: ");
   while (Creditos > 0){
     scanf("%c",choice);
     switch(choice[0]){
       case 'b': //player chooses how much to bet___________________________________
+        printf("Rice to bet: ");
         scanf("%d", &cashBet);
-        while ((cashBet >= Creditos) | (cashBet <= 0)){
-          printf("\nGoddamn it outsider, if you bet it all you won't have rice for dinner!(you must stick with 1 rice)\nRice to Bet: ");
-          scanf("%d", &cashBet);
-        }
+        //player chose difficulty level 1
+        if (minBet == 1{
+          while ((cashBet >= Creditos) | (cashBet <= 0)){
+            printf("\nGoddamn it outsider, if you bet it all you won't have rice for dinner!(you must stick to 1 rice)\nRice to Bet: ");
+            scanf("%d", &cashBet);
+          }
+
+          //player chose difficulty level 2
+        }else if(minBet == 2){
+          while (cashBet < 10){
+            printf("\nOutsider, That isn't allowed on the Rice-Ball Hall. You'll have to bet more than %d rice.\nRice to Bet: ", cashBet);
+            scanf("%d", &cashBet);
+            }
+
+          //player chose difficulty level 3
+        }else if(minBet == 3){
+          while (cashBet < 20){
+            printf("\nOutsider, The Rice Hall-of-Fame is no playground. %d rice is not enough.\nRice to Bet: ", cashBet);
+            scanf("%d", &cashBet);
+            }
+          }
         Creditos -= cashBet;
         show_Balance(Creditos, cashBet);
         choice[2] = 1;
         break;
+
       case 'n': // player chooses to bet on a number________________________________
         scanf("%d", &numberBet);
         while ((numberBet > 36) | (numberBet == 0)){

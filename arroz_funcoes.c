@@ -150,6 +150,7 @@ int load_game(int Creditos, int cashBet, int minBet){// loading previously saved
     fclose(file);
     printf("\nYou have successfully loaded your game.\n");
     printf("\n\n");
+    printf("\tYou are in the difficulty %d \n", minBet);
     show_Balance(Creditos, cashBet);
   }else{
     printf("\nThere is no saved game to load.\n");
