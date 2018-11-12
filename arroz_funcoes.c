@@ -24,38 +24,39 @@ int rollr(){ //roleta tirar novo nr_____________________________________________
 
 int comand_list(int Creditos){ //welcome message________________________________
     printf("\n  \tYour initial Balance is: %d Rice\n\n", Creditos);
-    printf("\tb <amount> -- the amount of rice you want to bet \n");
+    printf("\tb <amount> -- the amount of rice you want to bet \n\n");
     printf("\tn <number> -- bet on a specific number \n");
     printf("\te ----------- bet on an even number. Pays 2 to 1 \n");
     printf("\to ----------- bet on an odd number. Pays 2 to 1 \n");
     printf("\tc ----------- bet on color red \n");
-    printf("\tv ----------- bet on color black \n");
+    printf("\tv ----------- bet on color black \n\n");
     printf("\tr ----------- roll \n");
-    printf("\tm ----------- roll for fun\n");
+    printf("\tm ----------- roll for fun\n\n");
     printf("\th ----------- help \n");
     printf("\ts ----------- show current balance \n");
-    printf("\tl ----------- cash out/leave \n");
+    printf("\tl ----------- cash out/leave \n\n");
     printf("\tg ----------- save game progress \n");
-    printf("\tt ----------- load saved game \n");
+    printf("\tt ----------- load saved game \n\n");
     printf("\tRed or black: Choosing a color\n\t-Red numbers are --- 1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36\n\t-Black numbers are - 2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35\n\n");
     return 0;
 }
 
 int help (void){ //instrucoes___________________________________________________
     printf("\tWell... Here is the manual: \n");
-    printf("\tb <amount> -- the amount of rice you want to bet \n");
-    printf("\tn <number> -- the number you want to bet \n");
+    printf("\tb <amount> -- the amount of rice you want to bet \n\n");
+    printf("\tn <number> -- bet on a specific number \n");
     printf("\te ----------- bet on an even number. Pays 2 to 1 \n");
     printf("\to ----------- bet on an odd number. Pays 2 to 1 \n");
-    printf("\tc ----------- choose to bet on red \n");
-    printf("\tv ----------- choose to bet on black \n");
+    printf("\tc ----------- bet on color red \n");
+    printf("\tv ----------- bet on color black \n\n");
     printf("\tr ----------- roll \n");
-    printf("\tm ----------- roll for fun\n");
+    printf("\tm ----------- roll for fun\n\n");
     printf("\th ----------- help \n");
     printf("\ts ----------- show current balance \n");
-    printf("\tl ----------- cash out/leave \n");
+    printf("\tl ----------- cash out/leave \n\n");
     printf("\tg ----------- save game progress \n");
-    printf("\tRed or black: Choosing a color\n -Red numbers are  1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36\n -Black numbers are 2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35\n\n");
+    printf("\tt ----------- load saved game \n\n");
+    printf("\tRed or black: Choosing a color\n\t-Red numbers are --- 1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36\n\t-Black numbers are - 2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35\n\n");
     return 0;
 }
 
