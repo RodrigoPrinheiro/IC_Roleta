@@ -30,7 +30,7 @@ int main(){
     Creditos = load_game(Creditos,cashBet, minBet);
     printf("Rice successfully imported.");
   }
-  printf("\nAlright, one more thing, the difficulty. Would you like to play on:\n1 -------------------- The Cotton-Tail Room for free betting\n2 -------------------- The Rice-Ball Hall for a minimum of 10 rice when betting\n3 -------------------- The Rice Hall-of-Fame for a minimum of 20 rice when betting?\n");
+  printf("\nAlright, one more thing, the difficulty. Would you like to play on:\n1 -------------------- The Cotton-Tail Room for free betting\n2 -------------------- The Rice-Paddy Hall for a minimum of 10 rice when betting\n3 -------------------- The Rice Hall-of-Fame for a minimum of 20 rice when betting?\n");
   scanf("%d", &minBet);
   comand_list(Creditos);
   printf("Make your choice: ");
@@ -50,7 +50,7 @@ int main(){
           //player chose difficulty level 2
         }else if(minBet == 2){
           while (cashBet < 10){
-            printf("\nOutsider, That isn't allowed on the Rice-Ball Hall. You'll have to bet more than %d rice.\nRice to Bet: ", cashBet);
+            printf("\nOutsider, That isn't allowed on the Rice-Paddy Hall. You'll have to bet more than %d rice.\nRice to Bet: ", cashBet);
             scanf("%d", &cashBet);
             }
 
