@@ -7,7 +7,7 @@
   + Ao início, como queriamos aprender melhor como trabalhar com o git, procurámos dar setup do repositório que usámos do github. Dávamos update a partir do [gitbash](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/) utilizando uma pasta local .git. Após termos isto resolvido, acabámos por simplesmente dar merge no master branch sempre que tinhamos algo novo de relevante no código.
   + Grande parte do trabalho foi entender que funções é que eram mesmo necessárias ou utéis ter e separar do que facilmente pode ser feito e implementado na função main().
   + Criação de funçoes
-  + implementação da nossa propria header file (func_roleta.h) para usarmos no arroz.c. Isto foi alcançado pela informação que tinhamos das aulas e uma pequena ajuda do [StackOverflow](https://stackoverflow.com/questions/7109964/creating-your-own-header-file-in-c)
+  + implementação da nossa propria header file (func_roleta.h) para usarmos no arroz.c. Isto foi alcançado pela informação que tinhamos das aulas e uma pequena ajuda do [StackOverflow](https://stackoverflow.com/questions/7109964/creating-your-own-header-file-in-c).
   + Criação de um sistema para gravar o dinheiro ganho num jogo anterior, podendo fechar e abrir o programa a partir de um ficheiro extra e com o uso das funcoes fprintf, fscanf, fopen e fclose. Visto que não foi matéria dada usamos o site [Learn C](https://www.programiz.com/c-programming/c-file-input-output) para este feature.
   + ...
   + more stuff ^
@@ -20,7 +20,7 @@
 + Melhor percepção do que é programar em equipa.
 + Mais conhecimentos gerais.
 + Familiarização com a consola Ubuntu.
-+ ...
++ Criação de "save files" para variaveis no jogo.
 + more stuff ^
 ##### Troca de Ideias
 + É um jogo de roleta, tens um aviso no inicio a dar os controlos (comand_list()) e de seguida o jogo vai te pedir oque queres fazer, de acordo com esses controlos, após inserires um valor para apostar com a opcao b podes escolher um nr para apostar e depois disso podes dar roll para saberes se ganhaste ou não.
