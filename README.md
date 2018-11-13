@@ -9,7 +9,7 @@
   + Grande parte do trabalho foi entender que funções é que eram mesmo necessárias ou utéis ter e separar do que facilmente pode ser feito e implementado na função main().
   + Criação de funçoes
   + implementação da nossa propria header file (func_roleta.h) para usarmos no arroz.c. Isto foi alcançado pela informação que tinhamos das aulas e uma pequena ajuda do [StackOverflow](https://stackoverflow.com/questions/7109964/creating-your-own-header-file-in-c).
-  + Criação de um sistema para gravar o dinheiro ganho num jogo anterior, podendo fechar e abrir o programa a partir de um ficheiro extra e com o uso das funcoes fprintf, fscanf, fopen e fclose. Visto que não foi matéria dada usamos o site [Learn C](https://www.programiz.com/c-programming/c-file-input-output) para este feature.
+  + Criação de um sistema para gravar o dinheiro ganho num jogo anterior, podendo fechar e abrir o programa, e partir de um ficheiro extra e com o uso das funcoes fprintf, fscanf, fopen e fclose, carregar o dinheiro ganho numa sessão anterior. Visto que não foi matéria dada usamos o site [Learn C](https://www.programiz.com/c-programming/c-file-input-output) para este feature.
   + ...
 
 ### Referencias
