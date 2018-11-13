@@ -83,6 +83,7 @@ int main(){
         if ((choice[2] == 1) & (choice[3] == 1)){
           printf("lets roll.\n");
           n =rollr();
+          //Faz corresponder creditos ao return das funcoes para atualizar a quantia.
           if (choice[1] == 'e'){
             Creditos = odd_even(n,choice[1],cashBet,Creditos);
           }else if(choice[1] == 'o'){
@@ -127,10 +128,10 @@ int main(){
       case 'g': // player wants to save progress____________________________________
         save_game(Creditos,cashBet, minBet);
         break;
-      case 'm':
+      case 'm': // rolar a roleta sem efeito nos creditos, apreciar o delay?__________
         rollr();
         break;
-      case 'l':
+      case 'l': //sair do loop com uma label.______________________________________
         goto finish;
     }
   }
