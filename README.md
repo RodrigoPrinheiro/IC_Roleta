@@ -25,7 +25,7 @@
 + Mais conhecimentos gerais sobre C e bases de git(push, pull etc...).
 + Familiarização com a consola Ubuntu.
 + Criação de "save files" para variaveis no jogo.
-+ Aprendemos a usar com goto de labels durante um switch.
++ Aprendemos a usar o goto e labels durante um switch.
 
 ##### Troca de Ideias
 + É um jogo de roleta, tens um aviso no inicio a dar os controlos (comand_list()) e de seguida o jogo vai te pedir oque queres fazer, de acordo com esses controlos, após inserires um valor para apostar com a opcao b podes escolher um nr para apostar e depois disso podes dar roll para saberes se ganhaste ou não.
