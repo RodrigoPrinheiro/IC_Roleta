@@ -37,6 +37,7 @@ int comand_list(int Creditos){ //welcome message________________________________
     printf("\tl ----------- cash out/leave \n\n");
     printf("\tg ----------- save game progress \n");
     printf("\tt ----------- load saved game \n\n");
+    printf("\tp ----------- bet all you have \n\n");
     printf("\tRed or black: Choosing a color\n\t-Red numbers are --- 1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36\n\t-Black numbers are - 2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35\n\n");
     return 0;
 }
@@ -56,6 +57,7 @@ int help (void){ //instrucoes___________________________________________________
     printf("\tl ----------- cash out/leave \n\n");
     printf("\tg ----------- save game progress \n");
     printf("\tt ----------- load saved game \n\n");
+    printf("\tp ----------- bet all you have \n\n");
     printf("\tRed or black: Choosing a color\n\t-Red numbers are --- 1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36\n\t-Black numbers are - 2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35\n\n");
     return 0;
 }

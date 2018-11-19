@@ -34,7 +34,7 @@ int main(){
   scanf("%d", &minBet);
   comand_list(Creditos);
   printf("Make your choice: ");
-  while (Creditos > 0){
+  while (Creditos >= 0){
     scanf("%c",choice);
     switch(choice[0]){
       case 'b': //player chooses how much to bet___________________________________
@@ -133,6 +133,13 @@ int main(){
         break;
       case 'l': //sair do loop com uma label.______________________________________
         goto finish;
+      case 'p':
+        printf("Feeling lucky are ya?");
+        cashBet = Creditos;
+        Creditos -= cashBet;
+        show_Balance(Creditos, cashBet);
+        choice[2] = 1;
+	break;
     }
   }
   finish:
